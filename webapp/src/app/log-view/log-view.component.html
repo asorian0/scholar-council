@@ -1,0 +1,20 @@
+<div class="d-flex flex-column mb-4">
+  <div class="d-flex align-items-center mb-2">
+    <mat-icon routerLink="/" class="pointer">home</mat-icon
+    ><mat-icon>chevron_right</mat-icon><span>{{ data?.title }}</span>
+  </div>
+  <mat-divider></mat-divider>
+</div>
+<div class="col-12 col-xl-9 mb-5">
+  <header class="mb-3">
+    <h1 class="mb-1">{{ data?.title }}</h1>
+    <div class="d-flex flex-column justify-content-between">
+      <mat-divider></mat-divider>
+      <small class="py-2">{{ data?.createdAt | date }}</small>
+      <mat-divider></mat-divider>
+    </div>
+  </header>
+  <article>
+    <markdown [data]="data?.content"></markdown>
+  </article>
+</div>

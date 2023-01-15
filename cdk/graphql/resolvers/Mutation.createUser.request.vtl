@@ -1,0 +1,26 @@
+$util.qr($ctx.args.input.put("id", $util.autoUlid()))
+$util.qr($ctx.args.input.put("createdAt", $util.time.nowFormatted("yyyy-MM-dd HH:mm:ssZ")))
+$util.qr($ctx.args.input.put("version", 1))
+#set ($pk = "USER")
+#set ($sk = $ctx.args.input.id)
+
+#set($notAllowed = true)
+#foreach($group in $context.identity.claims.get("cognito:groups"))
+    #if($group == "admin")
+        #set($notAllowed = false)
+    #end
+#end
+#if($notAllowed)
+  $utils.unauthorized()
+#end
+  
+
+{
+  "version": "2018-05-29",
+  "operation": "PutItem",
+  "key": {
+    "pk": $util.dynamodb.toDynamoDBJson($pk),
+    "sk": $util.dynamodb.toDynamoDBJson($sk)
+  },
+  "attributeValues" : $util.dynamodb.toMapValuesJson($ctx.args.input),
+}

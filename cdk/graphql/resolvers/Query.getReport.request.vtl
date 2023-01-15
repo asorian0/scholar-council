@@ -1,0 +1,11 @@
+#set ($pk = "REPORT")
+#set ($sk = $ctx.args.id)
+
+{
+  "version": "2017-02-28",
+  "operation": "GetItem",
+  "key": {
+    "pk": $util.dynamodb.toDynamoDBJson($pk),
+    "sk": $util.dynamodb.toDynamoDBJson($sk)
+  },
+}

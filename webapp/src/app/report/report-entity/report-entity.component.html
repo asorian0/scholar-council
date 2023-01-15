@@ -1,0 +1,14 @@
+<form [formGroup]="form" class="d-flex flex-column col-12 col-xl-9 p-0">
+  <mat-form-field class="mb-3">
+    <mat-label>{{ 'TITLE' | translate }}</mat-label>
+    <input matInput formControlName="title" />
+  </mat-form-field>
+  <simplemde formControlName="content"></simplemde>
+  <mat-checkbox formControlName="published" class="mb-4">
+    {{ 'PUBLISHED' | translate }}
+  </mat-checkbox>
+</form>
+
+<button mat-raised-button color="accent" (click)="submit()">
+  <mat-icon>send</mat-icon>
+</button>

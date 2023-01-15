@@ -1,0 +1,76 @@
+<div class="position-absolute w-100 h-100 d-flex flex-column">
+  <mat-toolbar color="primary">
+    <div class="d-flex align-items-center justify-content-between w-100 p-0">
+      <div class="pointer d-flex flex-column" routerLink="/">
+        <h2 class="mb-1">{{ title }}</h2>
+        <small class="text-uppercase">{{ subtitle }}</small>
+      </div>
+      <div class="d-flex align-items-center">
+        <app-info></app-info>
+        <ng-container *ngIf="loggedIn">
+          <button
+            mat-raised-button
+            class="ms-3 me-3"
+            color="accent"
+            routerLink="/report"
+          >
+            <mat-icon>summarize</mat-icon>
+          </button>
+          <button mat-raised-button color="accent" (click)="logout()">
+            <mat-icon>logout</mat-icon>
+          </button>
+        </ng-container>
+      </div>
+    </div>
+  </mat-toolbar>
+  <main class="col p-4 d-flex flex-column">
+    <ng-container *ngIf="homeView">
+      <div class="d-flex flex-column flex-md-row mb-4">
+        <button
+          mat-raised-button
+          color="primary"
+          class="suggestion-button col col-md-3 fs-4 mb-3 me-md-3 mb-md-0"
+          routerLink="/suggestion"
+        >
+          <span>{{ 'SUGGESTIONS_INBOX' | translate }}</span>
+        </button>
+        <button
+          mat-raised-button
+          color="primary"
+          class="suggestion-button col col-md-3 fs-4"
+          routerLink="/suggestion/new"
+        >
+          <span>{{ 'SUGGESTIONS_SEND' | translate }}</span>
+        </button>
+      </div>
+      <mat-card *ngFor="let item of data" class="col-12 col-xl-9 mb-3">
+        <mat-card-header class="mb-2">
+          <mat-card-title>{{ item.title }}</mat-card-title>
+          <mat-card-subtitle>
+            <small>{{ item.createdAt | date }}</small>
+          </mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <mat-divider class="mb-2"></mat-divider>
+          <div [routerLink]="['/log', item.id]">
+            <markdown
+              data="{{ item.content | truncateContent : 30 }}"
+            ></markdown>
+            <button
+              mat-raised-button
+              color="accent"
+              [routerLink]="['/log', item.id]"
+            >
+              <div class="d-flex align-items-center">
+                <span class="me-3">{{ 'READ' | translate }}</span>
+                <mat-icon>more</mat-icon>
+              </div>
+            </button>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </ng-container>
+    <router-outlet *ngIf="!homeView"></router-outlet>
+  </main>
+</div>
+<app-scroll-to-top></app-scroll-to-top>

@@ -1,0 +1,29 @@
+<button
+  mat-mini-fab
+  color="primary"
+  class="d-flex"
+  (click)="open()"
+>
+  <mat-icon>help</mat-icon>
+</button>
+
+<ng-template #template>
+  <div class="d-flex flex-column">
+    <div class="d-flex my-3">
+      <mat-icon class="me-3">verified</mat-icon>
+      <span>{{ 'VERSION' | translate }}: {{ version }}</span>
+    </div>
+    <a class="d-flex align-items-center mb-3"
+       [href]="href">
+      <mat-icon class="me-3">mail</mat-icon>
+      <span>{{ 'SUPPORT' | translate }}</span>
+    </a>
+    <a class="d-flex align-items-center mb-3"
+       [href]="repoUrl"
+       target="_blank">
+      <img src="assets/github-mark.svg"
+           class="github-logo me-3" />
+      <span>{{ 'SOURCE_CODE' | translate }}</span>
+    </a>
+  </div>
+</ng-template>

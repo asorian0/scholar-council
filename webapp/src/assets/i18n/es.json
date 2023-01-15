@@ -1,0 +1,23 @@
+{
+  "SUGGESTION": "Sugerencia",
+  "NEW_SUGGESTION": "Nueva sugerencia",
+  "SUGGESTIONS": "Sugerencias",
+  "SUGGESTIONS_INBOX": "Buzón de sugerencias",
+  "SUGGESTIONS_SEND": "Enviar una sugerencia",
+  "READ": "Leer",
+  "DATE": "Fecha",
+  "CONTENT": "Contenido",
+  "NO_DATA": "No hay datos",
+  "NEW_SUGGESTION_NAME": "Nombre (opcional)",
+  "NEW_SUGGESTION_EMAIL": "Email (opcional, pero necesario si quieres que te respondamos en privado)",
+  "NEW_SUGGESTION_CONTENT": "Escribe tu sugerencia aquí",
+  "SEND": "Enviar",
+  "VERSION": "Versión",
+  "SUPPORT": "Soporte",
+  "SOURCE_CODE": "Código fuente",
+  "REPORTS": "Informes",
+  "TITLE": "Título",
+  "PUBLISHED": "Publicado",
+  "SIGN_IN": "Iniciar sesión",
+  "SIGN_IN_GOOGLE": "Iniciar sesión con Google"
+}

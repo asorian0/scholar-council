@@ -1,0 +1,37 @@
+@import './styles/simplemde.styles';
+@import './styles/theme-colors';
+
+* {
+  caret-color: transparent !important;
+}
+
+mat-icon {
+  margin: 0 !important;
+}
+
+main > *:not(router-outlet) {
+  width: 100%;
+}
+
+small {
+  font-size: 10px;
+  line-height: 10px;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+mat-toolbar.mat-toolbar-row,
+mat-toolbar.mat-toolbar-single-row {
+  min-height: 74px;
+}
+
+a,
+a:visited {
+  color: var(--primary-color);
+
+  &:hover {
+    color: var(--secondary-color);
+  }
+}

@@ -1,0 +1,172 @@
+enum UserRole {
+  Admin
+  Writer
+  Reader
+}
+
+type User {
+  id: ID!
+  firstName: String
+  lastName: String
+  email: String
+  role: UserRole
+}
+
+input UserInput {
+  id: ID!
+  firstName: String
+  lastName: String
+  email: String
+  role: UserRole
+}
+
+input CreateUserInput {
+  firstName: String
+  lastName: String
+  email: String
+  role: UserRole
+}
+
+input UpdateUserInput {
+  id: ID!
+  firstName: String
+  lastName: String
+  email: String
+  role: UserRole
+}
+
+type Report @aws_cognito_user_pools @aws_api_key {
+  id: ID
+  title: String!
+  content: String!
+  date: String!
+  createdAt: String
+  updatedAt: String
+  deletedAt: String
+  version: Int
+  published: Boolean
+}
+
+input ReportInput {
+  id: ID
+  title: String!
+  content: String!
+  date: String!
+  createdAt: String
+  updatedAt: String
+  deletedAt: String
+  version: Int
+  published: Boolean
+}
+
+input CreateReportInput {
+  title: String!
+  content: String!
+  date: String!
+  createdAt: String
+  updatedAt: String
+  deletedAt: String
+  version: Int
+  published: Boolean
+}
+
+input UpdateReportInput {
+  id: ID
+  title: String!
+  content: String!
+  date: String!
+  createdAt: String
+  updatedAt: String
+  deletedAt: String
+  version: Int
+  published: Boolean
+}
+
+type Suggestion @aws_api_key {
+  id: ID
+  senderName: String
+  content: String!
+  createdAt: String
+  email: String
+  response: String
+}
+
+input SuggestionInput {
+  id: ID
+  senderName: String
+  content: String!
+  createdAt: String
+  email: String
+  response: String
+}
+
+input CreateSuggestionInput {
+  senderName: String
+  content: String!
+  createdAt: String
+  email: String
+  response: String
+}
+
+input UpdateSuggestionInput {
+  id: ID
+  senderName: String
+  content: String!
+  createdAt: String
+  email: String
+  response: String
+}
+
+type Query {
+  listUser: [User]
+  getUser(id: ID!): User
+  listReport: [Report] @aws_cognito_user_pools @aws_api_key
+  listPublishedReport: [Report] @aws_cognito_user_pools @aws_api_key
+  getReport(id: ID!): Report @aws_cognito_user_pools @aws_api_key
+  listSuggestion: [Suggestion] @aws_api_key
+  getSuggestion(id: ID!): Suggestion @aws_api_key
+}
+
+type Mutation {
+  createUser(input: CreateUserInput!): User
+  updateUser(id: ID!, input: UpdateUserInput!): User
+  deleteUser(id: ID!): User
+  createReport(input: CreateReportInput!): Report @aws_cognito_user_pools
+  updateReport(id: ID!, input: UpdateReportInput!): Report
+    @aws_cognito_user_pools
+  deleteReport(id: ID!): Report @aws_cognito_user_pools
+  createSuggestion(input: CreateSuggestionInput!): Suggestion @aws_api_key
+  updateSuggestion(id: ID!, input: UpdateSuggestionInput!): Suggestion
+    @aws_api_key
+  deleteSuggestion(id: ID!): Suggestion @aws_api_key
+}
+
+type Subscription {
+  onCreateUser: User @aws_subscribe(mutations: ["createUser"])
+  onUpdateUser: User @aws_subscribe(mutations: ["updateUser"])
+  onDeleteUser: User @aws_subscribe(mutations: ["deleteUser"])
+  onCreateReport: Report
+    @aws_subscribe(mutations: ["createReport"])
+    @aws_cognito_user_pools
+  onUpdateReport: Report
+    @aws_subscribe(mutations: ["updateReport"])
+    @aws_cognito_user_pools
+  onDeleteReport: Report
+    @aws_subscribe(mutations: ["deleteReport"])
+    @aws_cognito_user_pools
+  onCreateSuggestion: Suggestion
+    @aws_subscribe(mutations: ["createSuggestion"])
+    @aws_api_key
+  onUpdateSuggestion: Suggestion
+    @aws_subscribe(mutations: ["updateSuggestion"])
+    @aws_api_key
+  onDeleteSuggestion: Suggestion
+    @aws_subscribe(mutations: ["deleteSuggestion"])
+    @aws_api_key
+}
+
+schema {
+  query: Query
+  mutation: Mutation
+  subscription: Subscription
+}

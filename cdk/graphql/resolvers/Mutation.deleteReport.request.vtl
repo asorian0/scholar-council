@@ -1,0 +1,22 @@
+#set ($pk = "REPORT")
+#set ($sk = $ctx.args.id)
+
+#set($notAllowed = true)
+#foreach($group in $context.identity.claims.get("cognito:groups"))
+    #if($group == "admin")
+        #set($notAllowed = false)
+    #end
+#end
+#if($notAllowed)
+  $utils.unauthorized()
+#end
+  
+
+{
+  "version": "2018-05-29",
+  "operation": "DeleteItem",
+  "key": {
+    "pk": $util.dynamodb.toDynamoDBJson($pk),
+    "sk": $util.dynamodb.toDynamoDBJson($sk)
+  },
+}

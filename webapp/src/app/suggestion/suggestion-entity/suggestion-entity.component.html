@@ -1,0 +1,31 @@
+<div class="d-flex flex-column mb-4">
+  <div class="d-flex align-items-center mb-2">
+    <mat-icon routerLink="/" class="pointer">home</mat-icon>
+    <mat-icon>chevron_right</mat-icon>
+    <span *ngIf="id">{{ 'SUGGESTION' | translate }}</span>
+    <span *ngIf="!id">{{ 'NEW_SUGGESTION' | translate }}</span>
+  </div>
+  <mat-divider></mat-divider>
+</div>
+<form [formGroup]="form" class="d-flex flex-column col-12 col-xl-9 p-0">
+  <mat-form-field class="mb-3">
+    <mat-label>{{ 'NEW_SUGGESTION_NAME' | translate }}</mat-label>
+    <input matInput formControlName="senderName" />
+  </mat-form-field>
+  <mat-form-field class="mb-3">
+    <mat-label>{{ 'NEW_SUGGESTION_EMAIL' | translate }}</mat-label>
+    <input matInput formControlName="email" />
+  </mat-form-field>
+  <mat-form-field class="mb-3">
+    <mat-label>{{ 'NEW_SUGGESTION_CONTENT' | translate }}</mat-label>
+    <textarea matInput rows="6" formControlName="content"> </textarea>
+  </mat-form-field>
+</form>
+
+<button *ngIf="!id"
+        mat-raised-button
+        color="accent"
+        (click)="submit()">
+  <mat-icon class="me-2">send</mat-icon>
+  <span>{{ 'SEND' | translate }}</span>
+</button>

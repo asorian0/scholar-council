@@ -1,0 +1,14 @@
+<div class="auth-box border">
+  <h1 class="text-center pt-3 mb-3 auth-box__header">{{ 'SIGN_IN' | translate }}</h1>
+  <div class="d-flex flex-column flex-wrap border-top">
+    <div class="col-12 border-bottom py-4">
+      <div
+        class="px-4 py-2 d-flex flex-column justify-content-center align-items-center h-100"
+      >
+        <app-google-login-button
+          (click)="googleSignIn()"
+        ></app-google-login-button>
+      </div>
+    </div>
+  </div>
+</div>

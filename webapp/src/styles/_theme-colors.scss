@@ -1,0 +1,23 @@
+@import 'theme-palette';
+
+:root {
+  --base-text-color: #4a4a4a;
+  --primary-color: #{$primary};
+  --primary-color-light: rgb(#{$primary} / 10%);
+  --primary-color-text: #000;
+  --secondary-color: #{$accent};
+  --secondary-color-text: white;
+  --red: #{$warn};
+  --red-lighter: rgb(226 44 44 / 10%);
+  --yellow: #f7b500;
+  --yellow-lighter: rgb(247 181 0 / 10%);
+  --green: #27c030;
+  --green-lighter: rgb(39 192 48 / 10%);
+  --blue: #35b9dd;
+  --blue-lighter: rgb(53 185 221 / 50%);
+  --grey: #797777;
+  --light-grey: lightgrey;
+  --dim-grey: dimgrey;
+  --purple: #bd32e0;
+  --white: white;
+}

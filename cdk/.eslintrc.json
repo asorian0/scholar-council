@@ -1,0 +1,15 @@
+{
+  "root": true,
+  "overrides": [
+    {
+      "files": ["*.ts", "*.js"],
+      "extends": [
+        "eslint:recommended",
+        "plugin:@typescript-eslint/recommended",
+        "prettier"
+      ],
+      "rules": {
+      }
+    }
+  ]
+}

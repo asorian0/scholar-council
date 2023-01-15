@@ -1,0 +1,22 @@
+{
+  "name": "scholar-council",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build:webapp": "npm --prefix webapp run build:production && rm -rf ./cdk/dist-webapp webapp.zip && mv ./webapp/dist/webapp ./cdk/dist-webapp && cd ./cdk/dist-webapp && zip -r ../webapp.zip .",
+    "deploy": "npm run deploy:app && npm run deploy:webapp",
+    "deploy:app": "npm --prefix cdk run deploy",
+    "deploy:webapp": "npm run build:webapp && npm --prefix cdk run deploy:webapp"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/asorian0/scholar-council.git"
+  },
+  "author": "",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/asorian0/scholar-council/issues"
+  },
+  "homepage": "https://github.com/asorian0/scholar-council#readme"
+}

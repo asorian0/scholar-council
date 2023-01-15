@@ -1,0 +1,19 @@
+#set ($pk = "REPORT")
+#set ($published = true)
+
+{
+  "version" : "2017-02-28",
+  "operation" : "Query",
+  "query" : {
+    "expression" : "pk = :pk",
+    "expressionValues" : {
+      ":pk": $util.dynamodb.toDynamoDBJson($pk),
+    },
+  },
+  "filter": {
+    "expression" : "published = :published",
+    "expressionValues" : {
+      ":published": $util.dynamodb.toDynamoDBJson($published),
+    },
+  },
+}

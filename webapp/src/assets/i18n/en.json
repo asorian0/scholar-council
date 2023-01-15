@@ -1,0 +1,23 @@
+{
+  "SUGGESTION": "Suggestion",
+  "NEW_SUGGESTION": "New suggestion",
+  "SUGGESTIONS": "Suggestions",
+  "SUGGESTIONS_INBOX": "Suggestions inbox",
+  "SUGGESTIONS_SEND": "Send a suggestion",
+  "READ": "Read",
+  "DATE": "Date",
+  "CONTENT": "Content",
+  "NO_DATA": "No data",
+  "NEW_SUGGESTION_NAME": "Name (optional)",
+  "NEW_SUGGESTION_EMAIL": "Email (optional, required if you want private reply from us)",
+  "NEW_SUGGESTION_CONTENT": "Write your suggestion here",
+  "SEND": "Send",
+  "VERSION": "Version",
+  "SUPPORT": "Support",
+  "SOURCE_CODE": "Source code",
+  "REPORTS": "Reports",
+  "TITLE": "Title",
+  "PUBLISHED": "Published",
+  "SIGN_IN": "Sign in",
+  "SIGN_IN_GOOGLE": "Sign in with Google"
+}
