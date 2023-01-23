@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { gql } from '@apollo/client/core';
 
 import { AppSyncService } from '../../shared/app-sync.service';
@@ -48,7 +48,8 @@ export class ReportEntityComponent implements OnInit {
   constructor(
     private readonly api: AppSyncService,
     private readonly route: ActivatedRoute,
-    private readonly snackbar: MatSnackBar
+    private readonly snackbar: MatSnackBar,
+    private readonly router: Router,
   ) {}
 
   public ngOnInit(): void {
@@ -78,8 +79,10 @@ export class ReportEntityComponent implements OnInit {
             ...this.form.value,
           },
         })
-        .subscribe(() => {
+        .subscribe((response) => {
           this.snackbar.open(this.createSuccessMessage, '', { duration: 3000 });
+          this.id = response.data.createReport.id;
+          this.router.navigateByUrl(`/report/${this.id}`);
         });
     } else {
       this.api
