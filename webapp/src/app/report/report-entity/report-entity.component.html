@@ -3,6 +3,10 @@
     <mat-label>{{ 'TITLE' | translate }}</mat-label>
     <input matInput formControlName="title" />
   </mat-form-field>
+  <mat-form-field class="mb-3">
+    <mat-label>{{ 'DATE' | translate }}</mat-label>
+    <input matInput formControlName="date" />
+  </mat-form-field>
   <simplemde formControlName="content"></simplemde>
   <mat-checkbox formControlName="published" class="mb-4">
     {{ 'PUBLISHED' | translate }}
