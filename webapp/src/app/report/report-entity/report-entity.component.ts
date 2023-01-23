@@ -79,7 +79,7 @@ export class ReportEntityComponent implements OnInit {
           },
         })
         .subscribe(() => {
-          this.snackbar.open(this.createSuccessMessage);
+          this.snackbar.open(this.createSuccessMessage, '', { duration: 3000 });
         });
     } else {
       this.api
@@ -90,7 +90,7 @@ export class ReportEntityComponent implements OnInit {
           },
         })
         .subscribe(() => {
-          this.snackbar.open(this.updateSuccessMessage);
+          this.snackbar.open(this.updateSuccessMessage, '', { duration: 3000 });
         });
     }
   }
