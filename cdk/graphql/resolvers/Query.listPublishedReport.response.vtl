@@ -1,1 +1,9 @@
-$utils.toJson($context.result.items)
+#set ($items = [])
+
+#foreach($item in $context.result.items)
+  #if ($item.published == true)
+    $util.qr($items.add($item))
+  #end
+#end
+
+$utils.toJson($items)

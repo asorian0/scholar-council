@@ -10,10 +10,11 @@
       ":pk": $util.dynamodb.toDynamoDBJson($pk),
     },
   },
-  "filter": {
-    "expression" : "published = :published",
-    "expressionValues" : {
-      ":published": $util.dynamodb.toDynamoDBJson($published),
-    },
-  },
+## TODO: filtering here seems the best option but this syntax is not working for some reason, keeping it here for further investigation and filtering results in response template
+##  "filter": {
+##    "expression" : "published = :published",
+##    "expressionValues" : {
+##      ":published": $util.dynamodb.toDynamoDBJson($published),
+##    },
+##  },
 }
