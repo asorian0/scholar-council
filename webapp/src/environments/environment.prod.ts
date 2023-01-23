@@ -7,9 +7,9 @@ export const environment = {
     oauth: {
       scope: ['openid', 'profile', 'email'],
       redirectSignIn:
-        'https://consejo-escolar.ceip-mariana-pineda.click/auth/sign-in/',
+        'https://consejo-escolar.ceip-mariana-pineda.click',
       redirectSignOut:
-        'https://consejo-escolar.ceip-mariana-pineda.click/auth/sign-in/',
+        'https://consejo-escolar.ceip-mariana-pineda.click',
       domain: 'scholar-council.auth.eu-west-1.amazoncognito.com',
       responseType: 'code',
     },
