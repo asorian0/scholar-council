@@ -74,7 +74,7 @@ query listReport {
     this.api
       .query(this.listReportQuery, {})
       .subscribe(
-        (response) => (this.data = response.data?.listReport?.reverse() ?? [])
+        (response) => (this.data = response.data?.listPublishedReport?.reverse() ?? [])
       );
   }
 
