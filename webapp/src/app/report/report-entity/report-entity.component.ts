@@ -41,6 +41,7 @@ export class ReportEntityComponent implements OnInit {
     title
     content
     date
+    published
   }
 }`);
 
