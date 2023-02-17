@@ -12,7 +12,7 @@
     <mat-label>{{ 'NEW_SUGGESTION_NAME' | translate }}</mat-label>
     <input matInput formControlName="senderName" />
   </mat-form-field>
-  <mat-form-field class="mb-3">
+  <mat-form-field *ngIf="!id" class="mb-3">
     <mat-label>{{ 'NEW_SUGGESTION_EMAIL' | translate }}</mat-label>
     <input matInput formControlName="email" />
   </mat-form-field>
