@@ -13,7 +13,10 @@
     "type": "git",
     "url": "git+https://github.com/asorian0/scholar-council.git"
   },
-  "author": "",
+  "author": {
+    "name": "Armando Soriano",
+    "email": "asoriano.dev@gmail.com"
+  },
   "license": "GPL-3.0",
   "bugs": {
     "url": "https://github.com/asorian0/scholar-council/issues"

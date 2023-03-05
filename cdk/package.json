@@ -4,6 +4,10 @@
   "bin": {
     "cdk": "bin/cdk.js"
   },
+  "author": {
+    "name": "Armando Soriano",
+    "email": "asoriano.dev@gmail.com"
+  },
   "license": "GPL-3.0",
   "scripts": {
     "build": "tsc",
