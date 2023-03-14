@@ -8,7 +8,7 @@
   <mat-divider></mat-divider>
 </div>
 <form [formGroup]="form" class="d-flex flex-column col-12 col-xl-9 p-0">
-  <mat-form-field class="mb-3">
+  <mat-form-field *ngIf="!id" class="mb-3">
     <mat-label>{{ 'NEW_SUGGESTION_NAME' | translate }}</mat-label>
     <input matInput formControlName="senderName" />
   </mat-form-field>
