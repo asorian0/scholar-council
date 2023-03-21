@@ -87,6 +87,7 @@ type Suggestion @aws_api_key {
   senderName: String
   content: String!
   createdAt: String
+  deletedAt: String
   email: String
   response: String
 }
