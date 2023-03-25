@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AdminGuard } from './aws-auth/shared/admin.guard';
 import { LogViewComponent } from './log-view/log-view.component';
+import { TosComponent } from './shared/tos/tos.component';
 
 const routes: Routes = [
   {
@@ -23,6 +24,10 @@ const routes: Routes = [
   {
     path: 'log/:id',
     component: LogViewComponent,
+  },
+  {
+    path: 'tos',
+    component: TosComponent,
   },
 ];
 

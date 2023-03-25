@@ -17,6 +17,8 @@ import { TranslateModule } from '@ngx-translate/core';
 import { TruncateContentPipe } from './truncate-content.pipe';
 import { ScrollToTopComponent } from './scroll-to-top/scroll-to-top.component';
 import { InfoComponent } from './info/info.component';
+import { TosComponent } from './tos/tos.component';
+import { TosNoticeComponent } from './tos-notice/tos-notice.component';
 
 const modules = [
   MatButtonModule,
@@ -42,6 +44,6 @@ const components = [ScrollToTopComponent, InfoComponent];
 @NgModule({
   imports: [CommonModule, ...modules],
   exports: [...modules, ...pipes, ...components],
-  declarations: [...pipes, ...components],
+  declarations: [...pipes, ...components, TosComponent, TosNoticeComponent],
 })
 export class SharedModule {}

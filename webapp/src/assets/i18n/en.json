@@ -19,5 +19,6 @@
   "TITLE": "Title",
   "PUBLISHED": "Published",
   "SIGN_IN": "Sign in",
-  "SIGN_IN_GOOGLE": "Sign in with Google"
+  "SIGN_IN_GOOGLE": "Sign in with Google",
+  "TOS": "Terms of Service"
 }

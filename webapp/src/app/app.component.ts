@@ -1,4 +1,5 @@
 import { Component, Inject, OnInit } from '@angular/core';
+import { MatBottomSheet, MatBottomSheetRef } from '@angular/material/bottom-sheet';
 import {
   ActivatedRoute,
   NavigationEnd,
@@ -12,6 +13,8 @@ import { environment } from '../environments/environment';
 import { AwsAuthService } from './aws-auth/shared/aws-auth.service';
 import { Report } from './schema';
 import { AppSyncService } from './shared/app-sync.service';
+import { TosNoticeService } from './shared/tos-notice.service';
+import { TosNoticeComponent } from './shared/tos-notice/tos-notice.component';
 
 @Component({
   selector: 'app-root',
@@ -37,6 +40,8 @@ query listReport {
 }
   `);
 
+  private bottomSheetRef?: MatBottomSheetRef;
+
   constructor(
     private readonly auth: AwsAuthService,
     private readonly router: Router,
@@ -44,6 +49,8 @@ query listReport {
     private readonly api: AppSyncService,
     @Inject(WINDOW) private readonly window: Window,
     private readonly translate: TranslateService,
+    private readonly bottom: MatBottomSheet,
+    private readonly tosNotice: TosNoticeService,
   ) {
     this.window.document.title = this.title;
 
@@ -76,6 +83,15 @@ query listReport {
       .subscribe(
         (response) => (this.data = response.data?.listPublishedReport?.reverse() ?? [])
       );
+
+    this.tosNotice.tosOk$.subscribe(() => {
+      this.window.localStorage.setItem('tos-ok', 'true');
+      this.bottomSheetRef?.dismiss();
+    });
+
+    if (!this.window.localStorage.getItem('tos-ok')) {
+      this.bottomSheetRef = this.bottom.open(TosNoticeComponent, { disableClose: true });
+    }
   }
 
   public logout(): void {
